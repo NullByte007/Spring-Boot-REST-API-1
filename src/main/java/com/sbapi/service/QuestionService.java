@@ -13,4 +13,7 @@ public interface QuestionService {
     public Optional<Question> getQuestion(Long qid);
     public Question updateQuestion(Question question);
     public String deleteQuestion(Long qid);
+
+    public String upvoteQuestion(Long qid);
+    public String downvoteQuestion(Long qid);
 }
