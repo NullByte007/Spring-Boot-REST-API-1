@@ -42,7 +42,7 @@ public class QuestionServiceImplementation implements QuestionService {
 
     @Override
     public Question updateQuestion(Question question) {
-        Question existingQuestion = questionRepository.findById(question.getQid()).orElse(null);
+        Question existingQuestion = this.questionRepository.findById(question.getQid()).orElse(null);
         existingQuestion.setQTitle(question.getQTitle());
         existingQuestion.setQDescription(question.getQDescription());
         existingQuestion.setTags(question.getTags());
@@ -59,17 +59,17 @@ public class QuestionServiceImplementation implements QuestionService {
 
     @Override
     public String upvoteQuestion(Long qid) {
-        Question q = questionRepository.getById(qid);
+        Question q = this.questionRepository.getById(qid);
         q.setQUpVoteValue(q.getQUpVoteValue() + 1);
-        questionRepository.save(q);
+        this.questionRepository.save(q);
         return "Question Upvoted successfully ! ";
     }
 
     @Override
     public String downvoteQuestion(Long qid) {
-        Question q = questionRepository.getById(qid);
+        Question q = this.questionRepository.getById(qid);
         q.setQDownVoteValue(q.getQDownVoteValue() + 1);
-        questionRepository.save(q);
+        this.questionRepository.save(q);
         return "Question Downvoted successfully ! ";
     }
 }
