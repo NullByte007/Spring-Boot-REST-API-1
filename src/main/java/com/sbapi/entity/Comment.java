@@ -27,6 +27,7 @@ public class Comment {
     // If you want to use fetch Type as LAZY, add the below property in application.properties
     // spring.jackson.serialization.FAIL_ON_EMPTY_BEANS=false
     // else it will throw a serializer exception
+    // Ref : https://stackoverflow.com/questions/61189480/spring-boot-jackson-responseentity-no-serializer-found-for-class
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "qid", referencedColumnName = "qid")
     private Question question;
